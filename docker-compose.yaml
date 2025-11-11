@@ -1,0 +1,48 @@
+services:
+  adminer:
+    image: adminer
+    ports:
+      - "8080:8080"
+    links:
+      - "postgres:db"
+    networks:
+      - dbnet
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:18.0
+    container_name: postgres-db
+    volumes:
+      - postgres_data:/var/lib/postgresql/MAJOR/docker
+    environment:
+      - POSTGRES_DB=${DATABASE_NAME}
+      - POSTGRES_USER=${DATABASE_USERNAME}
+      - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
+    networks:
+      - dbnet
+    ports:
+      - "5432:5432"
+
+  django-app:
+    build: ./site_shop
+    restart: always
+    env_file:
+      - .env
+    links:
+      - 'postgres:dbps'
+    networks:
+      - dbnet
+    volumes:
+      - ./site_shop:/app/www/site_shop
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+
+volumes:
+  postgres_data:
+
+networks:
+  dbnet:
+    driver: bridge
