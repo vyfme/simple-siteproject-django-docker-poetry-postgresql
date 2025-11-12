@@ -33,8 +33,6 @@ services:
       - 'postgres:dbps'
     networks:
       - dbnet
-    volumes:
-      - ./site_shop:/app/www/site_shop
     ports:
       - "8000:8000"
     depends_on:
