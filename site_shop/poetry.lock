@@ -40,6 +40,18 @@ argon2 = ["argon2-cffi (>=19.1.0)"]
 bcrypt = ["bcrypt"]
 
 [[package]]
+name = "django-active-link"
+version = "0.3.0"
+description = "The best and simplest way to highlight active links in your Django app."
+optional = false
+python-versions = "<4.0,>=3.10"
+groups = ["main"]
+files = [
+    {file = "django_active_link-0.3.0-py3-none-any.whl", hash = "sha256:1db90d2b3405b6d8f4966b9c1a1f684b21147640a3ad636a43d58e95f930e97d"},
+    {file = "django_active_link-0.3.0.tar.gz", hash = "sha256:0653ae337050ee1dd3559f7e2b86a202a8e1f9bc968a5968fcf65fbcb938fcad"},
+]
+
+[[package]]
 name = "django-debug-toolbar"
 version = "6.1.0"
 description = "A configurable set of panels that display various debug information about the current request/response."
@@ -266,4 +278,4 @@ files = [
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.10, <4"
-content-hash = "17031728e34c45748a69abd8ead7e2d96fc66636bb0a1fb9b44157b4e770ad5a"
+content-hash = "d5087a071e59ba95d3e55d315e3fc9aa151bfe2d37c78c62d02eb4112f4e2510"

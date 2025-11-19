@@ -11,7 +11,7 @@ COPY pyproject.toml poetry.lock /site_shop/
 
 RUN poetry install --no-root
 
-COPY . /site_shop/  
+COPY . .  
 
 RUN poetry config virtualenvs.create true \
     && poetry config virtualenvs.in-project true
