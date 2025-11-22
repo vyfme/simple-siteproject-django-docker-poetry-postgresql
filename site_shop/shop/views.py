@@ -6,10 +6,6 @@ def index(request):
     return render(request, "shop/index.html", context={'title': 'Главная страница'})
 
 
-def categories(request):
-    return render(request, "shop/categories.html", context={'title': 'Категории'})
-
-
 def about(request):
     return render(request, "shop/about.html", context={'title': 'О сайте'})
 
