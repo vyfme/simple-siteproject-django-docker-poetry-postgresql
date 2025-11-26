@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Category(models.Model):
+class Categories(models.Model):
     name = models.CharField(max_length=200, unique=True, verbose_name='Название')
     slug = models.SlugField(max_length=200, unique=True, blank=True, null=True, verbose_name='URL')
 
@@ -21,7 +21,7 @@ class Goods(models.Model):
     image = models.ImageField(upload_to='goods_images', blank=True, null=True, verbose_name='Изображение')
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Цена')
     discount = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Скидка')
-    category = models.ForeignKey(to=Category, on_delete=models.CASCADE, verbose_name='Категория')
+    category = models.ForeignKey(to=Categories, on_delete=models.CASCADE, verbose_name='Категория')
     in_stock = models.PositiveIntegerField(default=1, verbose_name='В наличии')
     pub_date = models.DateTimeField(auto_now_add=True, verbose_name='Дата добавления товара')
 

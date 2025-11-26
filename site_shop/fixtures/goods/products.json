@@ -1,0 +1,182 @@
+[
+    {
+        "model": "goods.goods",
+        "pk": 1,
+        "fields": {
+            "name": "Эко-кружка BambooCup",
+            "slug": "eko-kruzhka-bamboocup",
+            "description": "Многоразовая кружка из бамбукового волокна, лёгкая и прочная.",
+            "image": "",
+            "price": "590.00",
+            "discount": "0.00",
+            "category": 3,
+            "in_stock": 5,
+            "pub_date": "2025-11-26T21:27:29.307Z"
+        }
+    },
+    {
+        "model": "goods.goods",
+        "pk": 2,
+        "fields": {
+            "name": "Смарт-лампа Lumina",
+            "slug": "smart-lampa-lumina",
+            "description": "Умная LED-лампа с регулировкой яркости и цвета через приложение.",
+            "image": "",
+            "price": "1290.00",
+            "discount": "0.00",
+            "category": 3,
+            "in_stock": 15,
+            "pub_date": "2025-11-26T22:02:03.976Z"
+        }
+    },
+    {
+        "model": "goods.goods",
+        "pk": 3,
+        "fields": {
+            "name": "Наушники AeroSound Lite",
+            "slug": "naushniki-aerosound-lite",
+            "description": "Беспроводные наушники с шумоподавлением и автономностью до 20 часов.",
+            "image": "",
+            "price": "3490.00",
+            "discount": "0.00",
+            "category": 2,
+            "in_stock": 23,
+            "pub_date": "2025-11-26T22:02:47.384Z"
+        }
+    },
+    {
+        "model": "goods.goods",
+        "pk": 4,
+        "fields": {
+            "name": "Термобутылка FrostKeep",
+            "slug": "termobutylka-frostkeep",
+            "description": "Стальная бутылка, сохраняющая температуру напитков до 12 часов.",
+            "image": "",
+            "price": "890.00",
+            "discount": "0.00",
+            "category": 3,
+            "in_stock": 12,
+            "pub_date": "2025-11-26T22:03:22.047Z"
+        }
+    },
+    {
+        "model": "goods.goods",
+        "pk": 5,
+        "fields": {
+            "name": "Блокнот SoftNote A5",
+            "slug": "bloknot-softnote-a5",
+            "description": "Стильный блокнот в мягкой обложке, 120 страниц.",
+            "image": "",
+            "price": "350.00",
+            "discount": "0.00",
+            "category": 4,
+            "in_stock": 70,
+            "pub_date": "2025-11-26T22:03:52.286Z"
+        }
+    },
+    {
+        "model": "goods.goods",
+        "pk": 6,
+        "fields": {
+            "name": "Фитнес-браслет FitTrack Mini",
+            "slug": "fitnes-braslet-fittrack-mini",
+            "description": "Отслеживает шаги, пульс и сон, защита IP67.",
+            "image": "",
+            "price": "1990.00",
+            "discount": "0.00",
+            "category": 4,
+            "in_stock": 43,
+            "pub_date": "2025-11-26T22:04:36.088Z"
+        }
+    },
+    {
+        "model": "goods.goods",
+        "pk": 7,
+        "fields": {
+            "name": "Портативная колонка BeatBox Go",
+            "slug": "portativnaya-kolonka-beatbox-go",
+            "description": "Компактная Bluetooth-колонка с глубоким басом.",
+            "image": "",
+            "price": "2490.00",
+            "discount": "0.00",
+            "category": 2,
+            "in_stock": 31,
+            "pub_date": "2025-11-26T22:05:01.484Z"
+        }
+    },
+    {
+        "model": "goods.goods",
+        "pk": 8,
+        "fields": {
+            "name": "Аромасвеча Cozy Home",
+            "slug": "aromasvecha-cozy-home",
+            "description": "Натуральный соевый воск, аромат ванили и корицы.",
+            "image": "",
+            "price": "450.00",
+            "discount": "0.00",
+            "category": 1,
+            "in_stock": 87,
+            "pub_date": "2025-11-26T22:05:38.585Z"
+        }
+    },
+    {
+        "model": "goods.goods",
+        "pk": 9,
+        "fields": {
+            "name": "Рюкзак UrbanPack 20L",
+            "slug": "ryukzak-urbanpack-20l",
+            "description": "Городской рюкзак с отделением для ноутбука 15.",
+            "image": "",
+            "price": "2980.00",
+            "discount": "0.00",
+            "category": 4,
+            "in_stock": 11,
+            "pub_date": "2025-11-26T22:06:37.353Z"
+        }
+    },
+    {
+        "model": "goods.goods",
+        "pk": 10,
+        "fields": {
+            "name": "Игровая мышь Falcon Pro",
+            "slug": "igrovaya-mysh-falcon-pro",
+            "description": "RGB-подсветка, настраиваемые кнопки, сенсор 12 000 DPI.",
+            "image": "",
+            "price": "1590.00",
+            "discount": "0.00",
+            "category": 1,
+            "in_stock": 14,
+            "pub_date": "2025-11-26T22:07:14.040Z"
+        }
+    },
+    {
+        "model": "goods.goods",
+        "pk": 11,
+        "fields": {
+            "name": "Плед FluffyWarm",
+            "slug": "pled-fluffywarm",
+            "description": "Мягкий флисовый плед 150×200 см, не электризуется.",
+            "image": "",
+            "price": "740.00",
+            "discount": "0.00",
+            "category": 1,
+            "in_stock": 56,
+            "pub_date": "2025-11-26T22:07:54.078Z"
+        }
+    },
+    {
+        "model": "goods.goods",
+        "pk": 12,
+        "fields": {
+            "name": "Кухонный набор ChefEasy",
+            "slug": "kuhonnyj-nabor-chefeasy",
+            "description": "Комплект из 5 ножей из нержавеющей стали с подставкой.",
+            "image": "",
+            "price": "1850.00",
+            "discount": "0.00",
+            "category": 4,
+            "in_stock": 40,
+            "pub_date": "2025-11-26T22:08:30.688Z"
+        }
+    }
+]

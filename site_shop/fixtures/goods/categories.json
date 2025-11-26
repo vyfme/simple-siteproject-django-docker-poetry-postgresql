@@ -1,0 +1,34 @@
+[
+    {
+        "model": "goods.categories",
+        "pk": 1,
+        "fields": {
+            "name": "Все товары",
+            "slug": "vse-tovary"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 2,
+        "fields": {
+            "name": "Гарнитуры",
+            "slug": "garnitury"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 3,
+        "fields": {
+            "name": "Бытовая техника",
+            "slug": "bytovaya-tehnika"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 4,
+        "fields": {
+            "name": "На каждый день",
+            "slug": "na-kazhdyj-den"
+        }
+    }
+]
