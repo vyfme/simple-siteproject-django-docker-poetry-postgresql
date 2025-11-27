@@ -1,17 +1,27 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block base %}
 <div class="container">
     <div class="row gy-5">
         {% for product in goods %}
         <div class="col">
             <div class="card text-bg-dark mb-3" style="width: 18rem;">
-                <img src="{{ product.image }}" class="card-img-top" alt="...">
+                {% if product.image %}
+                    <img src="{% static product.image %}" class="card-img-top" alt="...">
+                {% else %}
+                    <img src="{% static 'goods/images/image-not-found.png' %}" class="card-img-top" alt="...">
+                {% endif %}
                 <div class="card-body">
                     <h5 class="card-title">{{ product.name }}</h5>
                     <p class="card-text text-truncate">{{ product.description }}</p>
                     <div class="d-flex justify-content-between"></div>
-                        <p><strong>Цена: {{ product.price }}р.</strong></p>
+                        {% if product.discount %}
+                            <p class="text-decoration-line-through">Цена: {{ product.price }} р.</p>
+                            <p><strong>Цена: {{ product.sell_price }} р.</strong></p>
+                            <span class="badge position-absolute top-0 start-100 translate-middle p-2 rounded-pill text-bg-secondary text-dark">Скидка {{ product.discount }}%</span>
+                        {% else %}
+                            <p><strong>Цена: {{ product.price }} р.</strong></p>
+                        {% endif %}
                         <a href="#" class="btn btn-primary">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
                                 <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"/>

@@ -1,4 +1,5 @@
 {% load active_link_tags %}
+{% load goods_tags %}
 <nav class="navbar navbar-right navbar-expand-lg bg-body-tertiary sticky-top" data-bs-theme="dark">
   <div class="container-fluid">
     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -14,6 +15,7 @@
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Каталог</a>
         <ul class="dropdown-menu">
+          {% tag_categories as categories %}
           {% for category in categories %}
           <li><a class="dropdown-item" href="{% url 'goods:catalog' %}">{{ category.name }}</a></li>
           {% endfor %}
