@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block base %}
+<div class="container mt-5">
+    <div class="card md-4 custom-shadow">
+        <div class="row">
+            <div class="col-md-4">
+                {% if product.image %}
+                    <img src="{% static product.image %}" 
+                class="img-thumbnail" data-bs-toggle="modal" data-bs-target="#imageModal1" alt="{{ product.name }}">
+                {% else %}
+                    <img src="{% static 'goods/images/image-not-found.png' %}" 
+                class="img-thumbnail" data-bs-toggle="modal" data-bs-target="#imageModal1" alt="{{ product.name }}">
+                {% endif %}
+                    <div class="modal-body">
+                        <h5 class="modal-title">{{ product.name }}</h5>
+                        <p>{{ product.description }}</p>
+                        {% if product.discount %}
+                        <p class="text-decoration-line-through">Цена: {{ product.price }} р.</p>
+                        <p><strong>Цена: {{ product.sell_price }} р.</strong></p>
+                            <span class="badge position-absolute top-0 start-100 translate-middle p-2 rounded-pill text-bg-secondary text-dark">Скидка {{ product.discount }}%</span>
+                        {% else %}
+                            <p><strong>Цена: {{ product.price }} р.</strong></p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
