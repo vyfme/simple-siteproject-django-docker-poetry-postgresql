@@ -12,8 +12,8 @@
                     <img src="{% static 'goods/images/image-not-found.png' %}" class="card-img-top" alt="{{ product.name }}">
                 {% endif %}
                 <div class="card-body">
-                    <h5 class="card-title">{{ product.name }}</h5>
-                    <p class="card-text text-truncate">{{ product.description }}</p>
+                    <h5 class="card-title"><a href="{% url 'goods:product' product.slug %}">{{ product.name|truncatechars:10 }}</a></h5>
+                    <p class="card-text">{{ product.description|truncatechars:25 }}</p>
                     <div class="d-flex justify-content-between"></div>
                         {% if product.discount %}
                             <p class="text-decoration-line-through">Цена: {{ product.price }} р.</p>
@@ -33,5 +33,6 @@
         </div>
         {% endfor %}
     </div>
+    {% include 'includes/pagination.html' %}
 </div>
 {% endblock %}
