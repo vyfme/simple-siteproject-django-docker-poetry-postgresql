@@ -1,8 +1,9 @@
+{% load goods_tags %}
 <nav aria-label="...">
-  <ul class="pagination justify-content-center" data-bs-theme="dark">
+  <ul class="pagination justify-content-center mt-5" data-bs-theme="dark">
     <li class="page-item {% if not goods.has_previous %}disabled{% endif %}"><a href="
       {% if goods.has_previous %}
-        ?page={{goods.previous_page_number}}
+        ?{% change_params page=goods.previous_page_number %}
       {% else %}
         #
       {% endif %}
@@ -10,12 +11,12 @@
       class="page-link">Назад</a></li>
     {% for page in goods.paginator.page_range %}
     {% if page >= goods.number|add:-2 and page <= goods.number|add:2 %}
-    <li class="page-item{% if goods.number == page %} active{% endif %}"><a class="page-link" href="?page={{page}}">{{ page }}</a></li>
+    <li class="page-item{% if goods.number == page %} active{% endif %}"><a class="page-link" href="?{% change_params page=page %}">{{ page }}</a></li>
     {% endif %}
     {% endfor %}
     <li class="page-item {% if not goods.has_next %}disabled{% endif %}"><a href="
       {% if goods.has_next %}
-        ?page={{goods.next_page_number}}
+        ?{% change_params page=goods.next_page_number %}
       {% else %}
         #
       {% endif %}
