@@ -1,34 +1,39 @@
 {% load active_link_tags %}
 {% load goods_tags %}
 <nav class="navbar navbar-right navbar-expand-lg bg-body-tertiary sticky-top" data-bs-theme="dark">
-  <div class="container-fluid">
-    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-      <li class="nav-item">
-        <a class="nav-link {% active_link 'shop:index' strict=True %}" aria-current="page" href="{% url 'shop:index' %}">Главная</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link {% active_link 'shop:about' strict=True %}" href="{% url 'shop:about' %}">О нас</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link {% active_link 'shop:contact' strict=True %}" href="{% url 'shop:contact' %}">Контакты</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Каталог</a>
-        <ul class="dropdown-menu">
-          {% tag_categories as categories %}
-          {% for category in categories %}
-          <li><a class="dropdown-item" href="{% url 'goods:catalog' category.slug %}">{{ category.name }}</a></li>
-          {% endfor %}
-        </ul>
+  <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvasLg" aria-controls="navbarOffcanvasLg" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="navbarOffcanvasLg" aria-labelledby="navbarOffcanvasLgLabel">
+    <div class="offcanvas-body">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link {% active_link 'shop:index' strict=True %}" aria-current="page" href="{% url 'shop:index' %}">Главная</a>
         </li>
-      </li>
-    </ul>
-    <a class="navbar-brand" href="#">
-      <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
-    </a>
-    <form class="d-flex w-auto" role="search">
-      <input class="form-control me-2" type="search" placeholder="Поиск" aria-label="Search"/>
-      <button class="btn btn-outline-success" type="submit">Поиск</button>
-    </form>
+        <li class="nav-item">
+          <a class="nav-link {% active_link 'shop:about' strict=True %}" href="{% url 'shop:about' %}">О нас</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% active_link 'shop:contact' strict=True %}" href="{% url 'shop:contact' %}">Контакты</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Каталог</a>
+          <ul class="dropdown-menu">
+            {% tag_categories as categories %}
+            {% for category in categories %}
+            <li><a class="dropdown-item" href="{% url 'goods:catalog' category.slug %}">{{ category.name }}</a></li>
+            {% endfor %}
+          </ul>
+          </li>
+        </li>
+      </ul>
+      <a class="navbar-brand" href="#">
+        <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+      </a>
+      <form class="d-flex w-auto" action="{% url "goods:search" %}" method="get" role="search">
+        <input class="form-control me-2" type="search" placeholder="Поиск" name="q" aria-label="Search"/>
+        <button class="btn btn-outline-success" type="submit">Поиск</button>
+      </form>
+    </div>
   </div>
 </nav>

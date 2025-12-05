@@ -1,12 +1,20 @@
-<div method="get" class="dropdown-center ms-5 mb-3">
+<div method="get" class="dropdown-center ms-5 mb-5">
   <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
     Фильтр
   </button>
-  <form action="{% url 'goods:catalog' slug_url %}" method="get" data-bs-theme="dark">
+  <form action="{% if request.GET.q %}
+                    {% url 'goods:search' %}
+                {% else %}
+                    {% url 'goods:catalog' slug_url %}" 
+                {% endif %}
+                method="get" data-bs-theme="dark">
     <ul class="dropdown-menu">
         <div class="form-check m-1">
             <input class="form-check-input" type="checkbox" value="on" name="on_sale" id="checkDefault" 
             {% if request.GET.on_sale == "on" %}checked{% endif %}>
+            {% if request.GET.q %}
+                <input type="hidden" name="q" value="{{ request.GET.q }}">
+            {% endif %}
             <label class="form-check-label" for="checkDefault">
                 Товары по акции
             </label>
