@@ -23,4 +23,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include("shop.urls")),
     path("catalog/", include("goods.urls")),
+    path("user/", include("users.urls")),
 ] + debug_toolbar_urls()

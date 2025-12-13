@@ -27,9 +27,20 @@
           </li>
         </li>
       </ul>
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand">
         <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
       </a>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url "users:registration" %}">Зарегистрироваться</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled">|</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url "users:login" %}">Войти</a>
+        </li>
+      </ul>
       <form class="d-flex w-auto" action="{% url "goods:search" %}" method="get" role="search">
         <input class="form-control me-2" type="search" placeholder="Поиск" name="q" aria-label="Search"/>
         <button class="btn btn-outline-success" type="submit">Поиск</button>

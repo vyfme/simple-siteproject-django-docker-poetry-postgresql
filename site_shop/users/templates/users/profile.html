@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block base %}
+<div class="d-flex mb-3">
+    <div class="card me-auto p-2 ms-5 text-bg-dark" style="width: 40rem;">
+        <div class="card-body">
+            <h3 class="card-text text-center">Профиль пользователя</h3>
+            <img src="{% static 'goods/images/image-not-found.png' %}" class="card-img-top rounded" style="width: 18rem;" alt="...">
+            <div class="card-body">
+                <label for="validationCustom01" class="form-label">Имя</label>
+                <input type="text" class="form-control" id="validationCustom01" value="Pollo" required>
+                <label for="validationCustom02" class="form-label">Фамилия</label>
+                <input type="text" class="form-control" id="validationCustom02" value="Otto" required>
+            </div>
+            <div class="card-body input-group flex-nowrap mt-1">
+                <span class="input-group-text" id="basic-addon1">@</span>
+                <div class="form-floating">
+                    <input type="text" class="form-control" placeholder="Имя пользователя" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+            </div>
+            <div class="card-body">
+                <a href="#" class="btn btn-primary">Сохранить</a>
+            </div>
+        </div>
+    </div>
+    <div class="card p-2 me-5 text-bg-dark" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Корзина</h5>
+        </div>
+        <div class="card-body">
+            <a href="#" class="btn btn-primary">Статус</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

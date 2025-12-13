@@ -5,15 +5,15 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 
 WORKDIR /site_shop
 
+RUN pip install --upgrade pip
 RUN pip install poetry
 
-COPY pyproject.toml poetry.lock /site_shop/
+COPY pyproject.toml /site_shop/
 
-RUN poetry install --no-root
+RUN poetry install --no-root --no-interaction --no-ansi
 
-COPY . .  
+COPY . /site_shop/  
 
-RUN poetry config virtualenvs.create true \
-    && poetry config virtualenvs.in-project true
-    
+RUN poetry config virtualenvs.create false
+
 ENTRYPOINT ["poetry", "run", "python", "manage.py", "runserver", "0.0.0.0:8000"]
