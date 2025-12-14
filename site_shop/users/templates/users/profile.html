@@ -3,33 +3,95 @@
 {% block base %}
 <div class="d-flex mb-3">
     <div class="card me-auto p-2 ms-5 text-bg-dark" style="width: 40rem;">
-        <div class="card-body">
-            <h3 class="card-text text-center">Профиль пользователя</h3>
-            <img src="{% static 'goods/images/image-not-found.png' %}" class="card-img-top rounded" style="width: 18rem;" alt="...">
+        <form action="{% url "users:profile" %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
             <div class="card-body">
-                <label for="validationCustom01" class="form-label">Имя</label>
-                <input type="text" class="form-control" id="validationCustom01" value="Pollo" required>
-                <label for="validationCustom02" class="form-label">Фамилия</label>
-                <input type="text" class="form-control" id="validationCustom02" value="Otto" required>
+                <h3 class="card-text text-center">Профиль пользователя</h3>
             </div>
-            <div class="card-body input-group flex-nowrap mt-1">
-                <span class="input-group-text" id="basic-addon1">@</span>
-                <div class="form-floating">
-                    <input type="text" class="form-control" placeholder="Имя пользователя" aria-label="Username" aria-describedby="basic-addon1">
+            <div class="card-body text-center">
+                {% if user.image %}
+                    <img src="{{ user.image.url }}" class="card-img-top rounded" style="width: 18rem;" alt="image">
+                {% else %}
+                    <img src="{% static 'users/images/base-image.png' %}" class="card-img-top rounded" style="width: 18rem;" alt="image">
+                {% endif %}
+                {% if form.image.errors %}
+                    <div class="alert alert-danger">
+                        {{ form.image.errors }}
+                    </div>
+                {% endif %}
+                <div class="mb-3">
+                    <label for="id_image" class="form-label">Аватар</label>
+                    <input class="form-control" 
+                        name="image" 
+                        type="file" 
+                        id="id_image"
+                        accept="image/*">
                 </div>
             </div>
             <div class="card-body">
-                <a href="#" class="btn btn-primary">Сохранить</a>
+                <label for="id_first_name" class="form-label">Имя</label>
+                <input type="text" class="form-control"
+                    id="id_first_name"
+                    name="first_name"
+                    value="{% if form.first_name.value %}{{ form.first_name.value }}{% endif %}" 
+                    required>
+                {% if form.first_name.errors %}
+                <div class="alert alert-danger">
+                    {{ form.first_name.errors }}
+                </div>
+                {% endif %}
+                <label for="id_last_name" class="form-label">Фамилия</label>
+                <input type="text" class="form-control"
+                    id="id_last_name"
+                    name="last_name"
+                    value="{% if form.last_name.value %}{{ form.last_name.value }}{% endif %}"  
+                    required>
+                {% if form.last_name.errors %}
+                <div class="alert alert-danger">
+                    {{ form.last_name.errors }}
+                </div>
+                {% endif %}
             </div>
-        </div>
-    </div>
-    <div class="card p-2 me-5 text-bg-dark" style="width: 18rem;">
-        <div class="card-body">
-            <h5 class="card-title">Корзина</h5>
-        </div>
-        <div class="card-body">
-            <a href="#" class="btn btn-primary">Статус</a>
-        </div>
+            <div class="card-body input-group mt-1">
+                <span class="input-group-text" id="id_username">@</span>
+                <input type="text" class="form-control"
+                name="username"
+                placeholder="Имя пользователя*" 
+                value="{% if form.username.value %}{{ form.username.value }}{% endif %}" 
+                aria-label="Username" 
+                aria-describedby="basic-addon1">
+                {% if form.username.errors %}
+                <div class="alert alert-danger">
+                    {{ form.username.errors }}
+                </div>
+                {% endif %}
+            </div>
+            <div class="card-body">
+                <label for="id_email" class="form-label">Email</label>
+                <input type="text" class="form-control"
+                    id="id_email"
+                    name="email"
+                    value="{% if form.email.value %}{{ form.email.value }}{% endif %}" 
+                    required>
+                {% if form.email.errors %}
+                <div class="alert alert-danger">
+                    {{ form.email.errors }}
+                </div>
+                {% endif %}
+            </div>
+            <div class="card-body">
+                <button type="submit" class="btn btn-primary">Сохранить</button>
+            </div>
+            </div>
+            <div class="card p-2 me-5 text-bg-dark" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Корзина</h5>
+                </div>
+                <div class="card-body">
+                    <a href="#" class="btn btn-primary">Статус</a>
+                </div>
+            </div>
+        </form>
     </div>
 </div>
 {% endblock %}
