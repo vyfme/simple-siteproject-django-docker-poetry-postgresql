@@ -2,42 +2,95 @@
 
 {% block base %}
 <div class="d-flex justify-content-center">
-  <form>
-  <div class="card text-bg-dark" style="width: 30rem;">
-    <div class="card-body text-center">
-      Регистрация
-    </div>
-    <div class="card-body">
-      <label for="validationCustom01" class="form-label">Имя</label>
-      <input type="text" class="form-control" id="validationCustom01" value="Pollo" required>
-    </div>
-    <div class="card-body">
-      <label for="validationCustom02" class="form-label">Фамилия</label>
-      <input type="text" class="form-control" id="validationCustom02" value="Otto" required>
-    </div>
-    <div class="card-body input-group flex-nowrap mt-1">
-      <span class="input-group-text" id="basic-addon1">@</span>
-      <div class="form-floating">
-        <input type="text" class="form-control" placeholder="Имя пользователя" aria-label="Username" aria-describedby="basic-addon1">
+  <form action="{% url "users:registration" %}" method="post">
+    {% csrf_token %}
+    <div class="card text-bg-dark" style="width: 30rem;">
+      <div class="card-body text-center">
+        Регистрация
+      </div>
+      <div class="card-body">
+        <label for="id_first_name" class="form-label">Имя*</label>
+        <input type="text" class="form-control" name="first_name" 
+          id="id_first_name"
+          placeholder="Введите ваше имя*" 
+          value="{% if form.first_name.value %}{{ form.first_name.value }}{% endif %}"  
+          required>
+          {% if form.first_name.errors %}
+          <div class="alert alert-danger">
+            {{ form.first_name.errors }}
+          </div>
+          {% endif %}
+      </div>
+      <div class="card-body">
+        <label for="id_last_name" class="form-label">Фамилия*</label>
+        <input type="text" class="form-control" name="last_name" 
+          id="id_last_name"
+          placeholder="Введите вашу фамилию*"
+          value="{% if form.last_name.value %}{{ form.last_name.value }}{% endif %}"  
+          required>
+          {% if form.last_name.errors %}
+          <div class="alert alert-danger">
+            {{ form.last_name.errors }}
+          </div>
+          {% endif %}
+      </div>
+      <div class="card-body input-group mt-1">
+        <span class="input-group-text" id="id_username">@</span>
+        <input type="text" class="form-control"
+          name="username"
+          placeholder="Имя пользователя*" 
+          value="{% if form.username.value %}{{ form.username.value }}{% endif %}" 
+          aria-label="Username" 
+          aria-describedby="basic-addon1">
+          {% if form.username.errors %}
+          <div class="alert alert-danger">
+            {{ form.username.errors }}
+          </div>
+          {% endif %}
+      </div>
+      <div class="card-body mb-3">
+        <label for="id_email" class="form-label">Email*</label>
+        <input type="email" class="form-control"
+          id="id_email"
+          name="email"
+          value="{% if form.email.value %}{{ form.email.value }}{% endif %}" 
+          >
+          {% if form.email.errors %}
+          <div class="alert alert-danger">
+            {{ form.email.errors }}
+          </div>
+          {% endif %}
+      </div>
+      <div class="card-body">
+        <label for="id_password1" class="form-label">Пароль*</label>
+        <input type="password" class="form-control"
+          id="id_password1"
+          name="password1"
+          value="{% if form.password1.value %}{{ form.password1.value }}{% endif %}" 
+          >
+          {% if form.password1.errors %}
+          <div class="alert alert-danger">
+            {{ form.password1.errors }}
+          </div>
+          {% endif %}
+      </div>
+      <div class="card-body">
+        <label for="id_password2" class="form-label">Подтвердите пароль*</label>
+        <input type="password" class="form-control"
+          id="id_password2"
+          name="password2"
+          value="{% if form.password2.value %}{{ form.password2.value }}{% endif %}" 
+          >
+          {% if form.password2.errors %}
+          <div class="alert alert-danger">
+            {{ form.password2.errors }}
+          </div>
+          {% endif %}
+      </div>
+      <div class="card-body">
+        <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
       </div>
     </div>
-    <div class="card-body input-group mb-3">
-      <p></p>
-      <label class="input-group-text" for="inputGroupFile01">Аватар</label>
-      <input type="file" class="form-control" id="inputGroupFile01">
-    </div>
-    <div class="card-body">
-      <label for="exampleInputPassword1" class="form-label">Пароль</label>
-      <input type="password" class="form-control" id="exampleInputPassword1">
-    </div>
-    <div class="card-body">
-      <label for="exampleInputPassword2" class="form-label">Подтвердите пароль</label>
-      <input type="password" class="form-control" id="exampleInputPassword2">
-    </div>
-    <div class="card-body">
-      <button type="submit" class="btn btn-primary">Отправить</button>
-    </div>
-  </div>
   </form>
 </div>
 {% endblock %}

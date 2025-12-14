@@ -13,7 +13,13 @@
       {% endif %}
       <div class="card-body">
           <label for="id_username" class="form-label">Имя пользователя</label>
-          <input type="username" value="{% if form.username.value %}{{ form.username.value }}{% endif %}" name="username" placeholder="Введите имя" class="form-control" id="id_username" required>
+          <input type="username" 
+            value="{% if form.username.value %}{{ form.username.value }}{% endif %}" 
+            name="username" 
+            placeholder="Введите имя" 
+            class="form-control" 
+            id="id_username" 
+            required>
       </div>
       <div class="card-body">
           <label for="id_password" class="form-label">Пароль</label>
@@ -26,7 +32,7 @@
         <div class="card-body">
             <a class="d-inline" href="#">Забыли пароль?</a>
             <div class="d-inline disabled">|</div>
-            <a class="d-inline" href="#">Создать аккаунт</a>
+            <a class="d-inline" href="{% url "users:registration" %}">Создать аккаунт</a>
         </div>
       </div>
     </div>
